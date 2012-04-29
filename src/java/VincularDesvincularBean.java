@@ -24,6 +24,7 @@ public class VincularDesvincularBean {
     private Map<String, Object> entidadesValue;
     private Map<String, Object> usuariosVinculadosValue;
     private Map<String, Object> usuariosDesvinculadosValue;
+    public String mensaje;
 
     {
         entidadesValue = new LinkedHashMap<String, Object>();
@@ -48,6 +49,20 @@ public class VincularDesvincularBean {
 
     public void setEntidad(String entidad) {
         this.entidad = entidad;
+        //Actualiza usuarios vinculados y desvinculados en función de la entidad
+        usuariosVinculadosValue.clear();
+        for (int i = 0; i < 3; i++) {
+            String clave = entidad + "nº " + i;
+            usuariosVinculadosValue.put("Usuario vinculado de la entidad " + clave, clave); //label, value
+        }
+
+        usuariosDesvinculadosValue.clear();
+        for (int i = 0; i < 3; i++) {
+            String clave = entidad + "nº " + i;
+            usuariosDesvinculadosValue.put("Usuario desvinculado de la entidad " + clave, clave); //label, value
+        }
+
+
     }
 
     public Map<String, Object> getEntidadesValue() {
@@ -88,6 +103,24 @@ public class VincularDesvincularBean {
 
     public void setUsuariosVinculadosValue(Map<String, Object> usuariosVinculadosValue) {
         this.usuariosVinculadosValue = usuariosVinculadosValue;
+    }
+
+    public void vincular() {
+        String mensaje = "Usted ha seleccionado vincular el usuario "+usuarioDesvinculado+" a la entidad"+entidad;
+        setMensaje(mensaje);
+    }
+
+    public void desvincular() {
+        String mensaje = "Usted ha seleccionado desvincular el usuario "+usuarioVinculado+" a la entidad"+entidad;
+        setMensaje(mensaje);
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
     
     

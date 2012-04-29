@@ -8,20 +8,33 @@
         <title>Vincular desvincular entidad</title>
     </h:head>
     <h:body>
+        <h1 align="center">VINCULAR / DESVINCULAR ENTIDADES</h1>
+        <p align="center">Por favor, seleccione los usuarios que desea vincular o desvincular de las entidades correspondientes</p>
+
         <h:form>
-            <h:panelGrid columns="5">
+            <h:panelGrid columns="5" width="100%" style="alignment-adjust: central;alignment-baseline: central;">
+
                 <h:outputText value="Entidades"/>
-                <h:selectOneListbox value="#{vincularDesvincularBean.entidad}">
+                <h:selectOneMenu value="#{vincularDesvincularBean.entidad}">
                     <f:selectItems value="#{vincularDesvincularBean.entidadesValue}" />
-                </h:selectOneListbox>
+                    <f:ajax render="usuarioVinculado usuarioDesvinculado" />
+                </h:selectOneMenu>
                 <h:outputText value="Usuarios Vinculados"/>
-                <h:selectOneListbox value="#{vincularDesvincularBean.usuarioVinculado}">
+                <h:selectOneMenu value="#{vincularDesvincularBean.usuarioVinculado}" id="usuarioVinculado">
                     <f:selectItems value="#{vincularDesvincularBean.usuariosVinculadosValue}" />
-                </h:selectOneListbox>
+                </h:selectOneMenu>
+                <h:commandButton id="desvincular" action="#{vincularDesvincularBean.desvincular}" value="Desvincular"></h:commandButton>
+                <h:outputText></h:outputText>
+                <h:outputText></h:outputText>
                 <h:outputText value="Usuarios Desvinculados"/>
-                <h:selectOneListbox value="#{vincularDesvincularBean.usuarioDesvinculado}">
+                <h:selectOneMenu value="#{vincularDesvincularBean.usuarioDesvinculado}" id="usuarioDesvinculado">
                     <f:selectItems value="#{vincularDesvincularBean.usuariosDesvinculadosValue}" />
-                </h:selectOneListbox>
+                </h:selectOneMenu>
+                <h:commandButton id="vincular" action="#{vincularDesvincularBean.vincular}" value="Vincular"></h:commandButton>
+                <h:outputText></h:outputText>
+                <h:outputText></h:outputText>
+                <h:outputText value="#{vincularDesvincularBean.mensaje}"></h:outputText>
+                <h:outputText></h:outputText>
 
             </h:panelGrid>
         </h:form>
