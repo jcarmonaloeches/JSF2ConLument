@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>Vincular desvincular entidad</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="5">
+                <h:outputText value="Entidades"/>
+                <h:selectOneListbox value="#{vincularDesvincularBean.entidad}">
+                    <f:selectItems value="#{vincularDesvincularBean.entidadesValue}" />
+                </h:selectOneListbox>
+                <h:outputText value="Usuarios Vinculados"/>
+                <h:selectOneListbox value="#{vincularDesvincularBean.usuarioVinculado}">
+                    <f:selectItems value="#{vincularDesvincularBean.usuariosVinculadosValue}" />
+                </h:selectOneListbox>
+                <h:outputText value="Usuarios Desvinculados"/>
+                <h:selectOneListbox value="#{vincularDesvincularBean.usuarioDesvinculado}">
+                    <f:selectItems value="#{vincularDesvincularBean.usuariosDesvinculadosValue}" />
+                </h:selectOneListbox>
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
